@@ -8,6 +8,8 @@
     echo 'no Session found';
  }
 
+ session_destroy();
+
 }
 
  

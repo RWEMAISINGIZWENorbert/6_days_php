@@ -16,7 +16,7 @@
           <div class="flex flex-col items-center">
                <a href="?page=dashboard"><p class="">dashboard</p></a>
                <a href="?page=completedTasks"><p>Completed Taks</p></a>
-               <a href=""><p>create task</p></a>
+               <a href="?page=Tasks"><p>Tasks</p></a>
                <a href="?page=users"><p>Users</p></a>
           </div>
        </div>
@@ -24,11 +24,11 @@
           <?php 
            if(isset($_GET['page'])){
             $page = $_GET['page']; 
-             $allowed_pages =  ['dashboard', 'completedTasks', 'users'];
+             $allowed_pages =  ['dashboard', 'completedTasks', 'users', 'Tasks'];
              if(in_array($page, $allowed_pages)){
                 include $page . '.php';
              }else{
-                echo "Failed";
+               include 'dashboard.php';
              }
            }
             

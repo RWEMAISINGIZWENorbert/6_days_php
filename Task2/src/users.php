@@ -24,7 +24,14 @@
             <tbody>
                  <?php
                  include 'db_connect.php';
-                    $sql = "SELECT * FROM  users";
+                 session_start();
+                 $adminEmail = $_SESSION['email'];
+                 $one = "SELECT id FROM admini WHERE email = '$adminEmail'";
+                 $display = $conn -> query($one);
+                 $displayed = $display->fetch_assoc();
+                $displayedId =  $displayed['id'];
+
+                    $sql = "SELECT * FROM  users WHERE adminId = '$displayedId'";
                     $result = $conn->query($sql);
                     if($result -> num_rows > 0){
                          while($row = $result->fetch_assoc()){
@@ -40,7 +47,9 @@
                     </td>
                   </tr>
             </tbody>
-            <?php   }   }?>
+            <?php   }   } 
+             ?>
+
            </table>
     </div>
 </body>

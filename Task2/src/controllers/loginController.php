@@ -10,6 +10,8 @@ $hashedPassword = md5($password);
 
  if($result->num_rows >0){
      header('location:../adminDashboard.php');
+     session_start();
+     $_SESSION['email'] = $email;
  }else{
     header("location: ../login.php?existMessage=Email and Password does not match");
  }

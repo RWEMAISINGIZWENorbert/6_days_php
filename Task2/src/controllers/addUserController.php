@@ -11,7 +11,13 @@
  if($result->num_rows > 0){
      header('location:../addUsers.php?insertmsg=Email Alredy exists');
  }else{
-     $sql = "INSERT INTO users(name, email, password) VALUES('$name', '$email', '$password')";
+    session_start();
+    $adminEmail = $_SESSION['email'];
+    $one = "SELECT id FROM admini WHERE email = '$adminEmail'";
+    $display = $conn -> query($one);
+    $displayed = $display->fetch_assoc();
+    $displayedId =  $displayed['id'];
+     $sql = "INSERT INTO users(name, email, password, adminId) VALUES('$name', '$email', '$password', '$displayedId')";
      $insert = $conn->query($sql);
      if($insert){
         header("location:../addUsers.php?insertmsg=User' $name 'Added Successfully");  

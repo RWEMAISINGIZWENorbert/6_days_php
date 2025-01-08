@@ -12,8 +12,18 @@ $hashedPassword = md5($password);
      header('location:../adminDashboard.php');
      session_start();
      $_SESSION['email'] = $email;
- }else{
-    header("location: ../login.php?existMessage=Email and Password does not match");
+ }
+ else{
+    // header("location: ../login.php?existMessage=Email and Password does not match");
+  $user = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+  $userResult  = $conn->query($user);
+  if($userResult->num_rows > 0){
+     session_start();
+     $_SESSION['user_email'] = $email;
+     header('location: ../User/userDashboard.php');
+  }else{
+   header('location: ../login.php');
+  }
  }
 
 ?>

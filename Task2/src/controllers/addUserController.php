@@ -17,8 +17,8 @@
     $display = $conn -> query($one);
     $displayed = $display->fetch_assoc();
     $displayedId =  $displayed['id'];
-     $sql = "INSERT INTO users(name, email, password, adminId) VALUES('$name', '$email', '$password', '$displayedId')";
-     $insert = $conn->query($sql);
+    $sql = "INSERT INTO users(name, email, password, adminId) VALUES('$name', '$email', '$password', '$displayedId')";
+    $insert = $conn->query($sql);
      if($insert){
         header("location:../addUsers.php?insertmsg=User' $name 'Added Successfully");  
      }

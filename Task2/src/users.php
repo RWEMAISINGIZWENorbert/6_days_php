@@ -26,11 +26,11 @@
                  include 'db_connect.php';
                  session_start();
                  $adminEmail = $_SESSION['email'];
-                 $one = "SELECT id FROM admini WHERE email = '$adminEmail'";
+                 $one = "SELECT * FROM admini WHERE email = '$adminEmail'";
                  $display = $conn -> query($one);
+                 if($display->num_rows > 0){
                  $displayed = $display->fetch_assoc();
-                $displayedId =  $displayed['id'];
-
+                  $displayedId = $displayed['id'];
                     $sql = "SELECT * FROM  users WHERE adminId = '$displayedId'";
                     $result = $conn->query($sql);
                     if($result -> num_rows > 0){
@@ -47,8 +47,7 @@
                     </td>
                   </tr>
             </tbody>
-            <?php   }   } 
-             ?>
+            <?php } } } ?>
 
            </table>
     </div>

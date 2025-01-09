@@ -4,6 +4,10 @@
   $name = $_POST['name'];
   $email = $_POST['email'];
   $password = $_POST['password'];
+ 
+  if(empty($name) || empty($email) || empty($password)){
+      header("location: ../adminDashboard.php?page=addUsers&msg=Please fill the credentials");
+  }else{
 
  $select = "SELECT * FROM users WHERE email = '$email' ";
  $result = $conn->query($select);
@@ -20,8 +24,9 @@
     $sql = "INSERT INTO users(name, email, password, adminId) VALUES('$name', '$email', '$password', '$displayedId')";
     $insert = $conn->query($sql);
      if($insert){
-        header("location:../addUsers.php?insertmsg=User' $name 'Added Successfully");  
+        header("location:../adminDashboard.php?page=users&insertmsg=User".$name ."Added Successfully");  
      }
  }
+}
 
 ?>

@@ -18,7 +18,6 @@
                if($result->num_rows > 0){
                  $row = $result->fetch_assoc();
                  $rowId =  $row['id'];    
-                 echo $rowId;
                  $sql = "SELECT * FROM tasks WHERE authorId = '$rowId'";
                  $sql_result = $conn->query($sql);
                  if($sql_result->num_rows > 0){ 
@@ -32,10 +31,10 @@
                      </div>
                      <div class="flex justify-between">
                          <p class="flex items-center px-2 bg-green-300 text-green-800 text-sm rounded-full cursor-pointer font-semibold"><?php echo $each['status'] ?></p>
-                         <a href="editUserTask.php?id=<?php echo $each['id']?>&status=<?php echo $each['status']?>"><button class="flex items-center px-2 bg-red-800 text-white  rounded-md cursor-pointer font-semibold text-2xl">Edit</button></a>
+                         <a href="./userDashboard.php?page=editUserTask&id=<?php echo $each['id']?>&status=<?php echo $each['status']?>"><button class="flex items-center px-2 bg-red-800 text-white  rounded-md cursor-pointer font-semibold text-2xl">Edit</button></a>
                      </div>
                 </div>
-                <?php   } }else{echo "Failed 1";}}else{echo "Failed";}?>
+                <?php   } }else{echo "No results found";}}else{echo "Failed";}?>
           </div>
       </div>
 </body>

@@ -9,19 +9,20 @@
 <body>
     <div class="flex h-screen w-full bg-gray-300">
        <div class="h-full w-1/4 bg-amber-700">
-          <h4 class="text-white font-medium text-lg text-center mt-4 cursor-pointer">User dashboard</h4>
-          <div class="flex flex-col items-center">
-               <a href="?page=dashboard"><p class="">dashboard</p></a>
-               <a href="?page=myTasks"><p>My task</p></a>
-               <a href="?page=completedTasks"><p>Completed tasks</p></a>
-               <a href="?page=Notification"><p>Notifications</p></a>
+          <h4 class="text-white font-semibold text-lg text-center mt-4 cursor-pointer">User dashboard</h4>
+          <?php include 'profile_avatar.php'?>
+          <div class="flex flex-col  space-y-5 ml-[4rem]">
+               <a href="?page=dashboard"><p class="text-xl font-medium text-gray-300">dashboard</p></a>
+               <a href="?page=myTasks"><p class="text-xl font-medium text-gray-300">My task</p></a>
+               <a href="?page=completedTasks"><p class="text-xl font-medium text-gray-300">Completed tasks</p></a>
+               <a href="?page=Notification"><p class="text-xl font-medium text-gray-300">Notifications</p></a>
           </div>
        </div>
        <div class="h-full w-3/4 bg-gray-300 mx-3 my-3">
             <?php
                if(isset($_GET['page'])){
                   $page = $_GET['page'];
-                  $allowed_pages = ['dashboard', 'myTasks', 'completedTasks','Notification'];
+                  $allowed_pages = ['dashboard', 'myTasks', 'completedTasks','Notification','editUserTask'];
                   if(in_array($page, $allowed_pages)){
                     include $page . ".php";
                   }else{

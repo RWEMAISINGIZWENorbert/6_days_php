@@ -10,7 +10,12 @@
     <div class="w-full h-full">
         <div class="flex justify-between my-2">
           <h4 class="text-2xl  font-semibold text-gray-800">All Tasks</h4>
-          <a href="addNewTask.php"><button class="text-center bg-amber-600 text-white font-semibold cursor-pointer rounded-lg p-2">Add New Task</button></a>
+          <?php
+            if(isset($_GET['msg'])) {
+                 echo "<p class = 'text-xl font-semibold text-green-700 text-center -mt-2'>".$_GET['msg']."</p>";
+            }
+          ?>
+          <a href="adminDashboard.php?page=addNewTask"><button class="text-center bg-amber-600 text-white font-semibold cursor-pointer rounded-lg p-2">Add New Task</button></a>
           </div>
           <div class="grid grid-cols-3 gap-5">
              <?php
@@ -22,7 +27,6 @@
               if($admin_result->num_rows > 0){
                 $admin_row = $admin_result->fetch_assoc();
                 $admin_id = $admin_row['id'];
-              }
 
                $sql = "SELECT * FROM tasks WHERE adminId = '$admin_id'";
                $result = $conn->query($sql);
@@ -40,7 +44,7 @@
                       <div class="flex justify-between">
                           <p class="flex items-center px-2 bg-green-300 text-green-800 text-sm rounded-full cursor-pointer font-semibold"><?php echo $each['status']?></p>
                           <div class="flex gap-2">
-                              <a href="editTask.php?id=<?php echo $each['id']?>"><button class="bg-green-600 text-white px-2">Edit</button></a>
+                              <a href="adminDashboard.php?page=editTask&id=<?php echo $each['id']?>"><button class="bg-green-600 text-white px-2">Edit</button></a>
                               <a href="./controllers/deleteTaskController.php?id=<?php echo $each['id']?>"><button class="bg-red-600 text-white px-2">Delete </button></a>
                           </div>
                       </div>
@@ -77,7 +81,7 @@
                           </div>
                       </div>
                 </div> -->
-                <?php }  }?>
+                <?php }  } }?>
           </div>
     </div>
 </body>

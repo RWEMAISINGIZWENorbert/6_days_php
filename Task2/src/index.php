@@ -6,16 +6,33 @@
     <title>Document</title>
 </head>
 <body>
-      <form action="controllers/signUpController.php" method="post">
-           <label for="name">Username</label><br>
-           <input type="text" name="name"><br><br>
-           <label for="email">Email Adress</label><br>
-           <input type="text" name="email"><br><br>
-           <label for="password">Password</label><br>
-           <input type="password" name="password"><br><br>
-           <input type="submit" name="submit" value="Sign Up">
-      </form>
-      <p>Alread have Account? login <a href="login.php">here</a></p>
+    <link rel="stylesheet" href="output.css">
+    <div class="flex w-full h-screen">
+    <div class="w-full flex flex-col items-center justify-center lg:1/2 b bg-gray-200">
+        <div class="w-full lg:w-1/2 bg-white p-4 rounded-md px-5">
+            <div class="flex justify-between my-2 mx-5">
+                  <h2 class="text-2xl font-bold text-amber-700 flex-shrink-0 hover:motion-preset-seesaw cursor-pointer">My Task</h2>
+                   <h4 class="text-2xl font-semibold text-gray-700">Sign Up</h4>
+            </div>
+          <form action="controllers/signUpController.php" method="post">
+           <label for="name" class="text-xl text-gray-700">Username</label><br>
+           <input type="text" name="name" class="w-full p-2 text-xl py-2 border border-amber-600 rounded-md outline-none bg-transparent"><br><br>
+           <label for="email"class="text-xl text-gray-700">Email Adress</label><br>
+           <input type="text" name="email" class="w-full p-2 text-xl py-2 border border-amber-600 rounded-md outline-none bg-transparent"><br><br>
+           <label for="password" class="text-xl text-gray-700">Password</label><br>
+           <input type="password" name="password" class="w-full p-2 text-xl py-2 border border-amber-600 rounded-md outline-none bg-transparent"><br><br>
+           <input type="submit" name="submit" value="Sign Up" class="w-full p-2 text-xl py-2 border-none bg-amber-600 rounded-md outline-none text-white cursor-pointer active:scale-[.98] active:duration-100 hover:scale-[1.01]">
+          </form>
+        <div class="flex justify-between my-3 items-center text-center">  
+          <p>Alread have Account?</P><P><a href="login.php" class="text-amber-600 underline">login here</a></p>
+      </div>
+      </div>
+      </div>
+       <div class="hidden w-1/2 relative lg:flex items-center justify-center h-full bg-gray-200">
+            <div class="w-60 h-60 bg-gradient-to-tr from-violet-500 to-pink-500 rounded-full animate-pulse"></div>
+            <div class="w-full h-1/2 bottom-0 bg-white/10 backdrop-blur-lg absolute"></div>
+       </div>
+      </div>
 </body>
 </html>
 

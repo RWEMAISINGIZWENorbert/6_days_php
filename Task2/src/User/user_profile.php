@@ -8,25 +8,25 @@
 <body>
       <div class="w-full h-full">
         <?php
-          include './db_connect.php';
+          include '../db_connect.php';
            session_start();
-           if($_SESSION['email']){
-          $admin_email = $_SESSION['email'];
-          $select = "SELECT * FROM admini WHERE email = '$admin_email'";
+           if($_SESSION['user_email']){
+          $user_email = $_SESSION['user_email'];
+          $select = "SELECT * FROM users WHERE email = '$user_email'";
           $result = $conn->query($select);
           if($result->num_rows > 0){
                $row = $result->fetch_assoc();
-               $hahed_password = $row['password'];
-               $passwod = $_SESSION['admin_password'];
+            //    $hahed_password = $row['password'];
+               $passwod = $row['password'];
         ?>
-        <form action="./controllers/edit_admin_profile_controller.php" method="post" enctype="multipart/form-data">
+        <form action="./controller/edit_user_profile_controller.php" method="post" enctype="multipart/form-data">
             <!-- <input type="file" name="image"> -->
              <div class="flex my-4">
                     <div class="w-1/2 cursor-pointer relative">
-                        <img src="./assets/avatar.jpg" alt="" class="rounded-full"> 
+                        <img src="../assets/avatar.jpg" alt="" class="rounded-full"> 
                     </div> 
                     <div class="flex flex-col w-1/2">
-                       <input type="hidden" name="id" value="<?php echo $row['id']?>">  
+                    <input type="hidden" name="id" value="<?php echo $row['id']?>">  
                     <label for="title" class="text-gray-700 text-2xl font-semibold">User Name</label><br>
                     <input type="text" name="name" class="w-full p-2 text-xl py-2 border border-amber-600 rounded-md outline-none bg-transparent" value="<?php echo $row['name'] ?>"><br>
                     <label for="title" class="text-gray-700 text-2xl font-semibold">Email</label><br>
@@ -36,11 +36,11 @@
                     </div>
              </div>
              <div class="flex justify-between w-full">
-                 <button class="py-3 px-5  bg-red-700 text-white text-2xl font-semibold rounded-md">Cancel</button>
+                 <a href="userDashboard.php?page=dashboard"><button class="py-3 px-5  bg-red-700 text-white text-2xl font-semibold rounded-md">Cancel</button></a>
                  <button type="submit" class="py-3 px-5 bg-green-700 text-white text-2xl font-semibold rounded-md">Edit</button>
              </div>
              </form>
-             <?php  } }else{header("location: index.php");} ?>
+             <?php  } }else{header("location: ../index.php");} ?>
       </div>
 </body>
 </html>

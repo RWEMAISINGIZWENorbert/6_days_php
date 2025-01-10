@@ -47,7 +47,7 @@
                     <td class="text-center"><?php echo $row['email']?></td>
                     <td class="text-center"><?php echo $row['password']?></td>
                     <td class="text-center">
-                        <a href="editUser.php?id=<?php echo $row['id']?>"><button class="bg-green-200 text-green-700 text-xl font-medium px-4 rounded-md">Edit</button></a>
+                        <a href="adminDashboard.php?page=editUser&id=<?php echo $row['id']?>"><button class="bg-green-200 text-green-700 text-xl font-medium px-4 rounded-md">Edit</button></a>
                          <a href="./controllers/deleteUserController.php?id=<?php echo $row['id']?>"><button class="bg-red-300 text-red-700 text-xl font-medium px-4 rounded-md">Delete</button></a>
                     </td>
                   </tr>

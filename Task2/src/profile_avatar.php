@@ -7,9 +7,9 @@
 </head>
 <body>
     <a href="adminDashboard.php?page=admin_profile">
-        <div class="flex flex-col items-center cursor-pointer my-3">
+        <div class="w-full flex flex-col items-center cursor-pointer my-3">
         <div class="w-1/2 translate-x-4">
-          <img src="./assets/avatar.jpg" alt="" class="w-4 h-4 rounded-full">
+          <img src="./assets/avatar.jpg" alt="" class="rounded-full">
           <p class="text-xl text-gray-700 text-center">@admin</p>
           </div>  
      </div>

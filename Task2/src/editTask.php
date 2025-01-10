@@ -13,7 +13,7 @@
         $result = $conn->query($sql);
         if($result -> num_rows > 0){
             while($task = $result->fetch_assoc()){
-                if($task['status'] == 'completed'){
+                if($task['status'] <> "Completed"){
     ?>
           <div class="w-full h-full flex justify-center items-center">
        <div class="w-full flex flex-col items-center justify-center lg:1/2 b bg-gray-300">   
@@ -72,6 +72,10 @@
             <div class="w-full h-1/2 bottom-0 bg-white/10 backdrop-blur-lg absolute"></div>
        </div>
      </div> 
-     <?php }else{header("location:adminDashboard.php?page=Tasks&msg=Task completed succesfully");} } }?>
+     <?php 
+              }else{
+                header("location:adminDashboard.php?page=Tasks&msg=Task completed Already");
+                }
+                 } }?>
 </body>
 </html>

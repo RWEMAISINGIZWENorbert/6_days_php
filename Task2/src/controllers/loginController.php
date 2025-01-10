@@ -9,9 +9,10 @@ $hashedPassword = md5($password);
  $result = $conn->query($sql);
 
  if($result->num_rows >0){
-     header('location:../adminDashboard.php');
+     header('location:../adminDashboard.php?page=dashboard');
      session_start();
      $_SESSION['email'] = $email;
+     $_SESSION['admin_password'] = $password;
  }
  else{
     // header("location: ../login.php?existMessage=Email and Password does not match");

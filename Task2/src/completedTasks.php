@@ -19,7 +19,7 @@
             <tbody class="w-full">
                 <?php
                 include 'db_connect.php';
-                  session_start();
+                //   session_start();
                   $admin_email = $_SESSION['email'];
                   $select = "SELECT * FROM admini WHERE email = '$admin_email'";
                   $result = $conn->query($select);
@@ -27,7 +27,7 @@
                        $row = $result->fetch_assoc();
                         $id = $row['id'];
 
-                 $sql = "SELECT * FROM tasks WHERE adminId = '$id' AND status = 'completed'";
+                 $sql = "SELECT * FROM tasks WHERE adminId = '$id' AND status = 'Completed'";
                  $sql_result = $conn->query($sql);      
                    if($sql_result ->num_rows > 0){
                       $sql_row = $sql_result->fetch_assoc(); 
@@ -45,7 +45,7 @@
                 <tr>
                 </tr>
                 <?php }else{
-                    $no_results = "<p class= 'text-2xl font-bold'>"."No results found"."<p/>";
+                    $no_results = "<p class= ' flex items-center text-center text-2xl font-bold'>"."No results found"."<p/>";
                 }} ?>
             </tbody>
          </table>  

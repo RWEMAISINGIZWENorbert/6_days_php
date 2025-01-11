@@ -29,7 +29,7 @@
             <tbody>
                  <?php
                  include 'db_connect.php';
-                 session_start();
+                //  session_start();
                  $adminEmail = $_SESSION['email'];
                  $one = "SELECT * FROM admini WHERE email = '$adminEmail'";
                  $display = $conn -> query($one);

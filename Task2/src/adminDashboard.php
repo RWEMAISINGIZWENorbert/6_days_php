@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="output.css">
 </head>
 <body>
+   <?php
+      session_start();
+      if(isset($_SESSION['email'])){
+         
+   ?>
     <div class="flex h-screen w-full bg-gray-300">
-       <div class="h-full w-1/4 bg-amber-700">
+       <div class="h-full md:hidden flex flex-col fixed bottom-0 w-1/4 bg-amber-700 md:bg-red-700 ">
+       <!-- <div class="h-full hidden md:flex"> -->
              <h4 class="text-white font-semibold text-lg ml-[4rem] mt-4 cursor-pointer">Admin dashboard</h4>
              <?php  include './profile_avatar.php' ?>
-            <div class="flex flex-col space-y-4"> 
+         <!-- <div class="h-full fixed top-0 bottom-0 flex flex-col justify-between">  -->
+         <div class="flex flex-col space-y-[4rem]"> 
            <div class="flex flex-col  space-y-5 ml-[4rem]">
                <a href="?page=dashboard"><p class="text-xl font-medium text-gray-300">dashboard</p></a>
                <a href="?page=Tasks"><p class="text-xl font-medium text-gray-300">Tasks</p></a>
@@ -38,5 +45,10 @@
           ?>
        </div>
     </div>
+    <?php 
+         }else{
+            header("location: login.php?failed");
+         }
+         ?>
 </body>
 </html>

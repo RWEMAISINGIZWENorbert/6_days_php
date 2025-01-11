@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<div class="h-screen w-full">
+<div class="h-full w-full">
         <?php
            include '../db_connect.php';
            session_start();

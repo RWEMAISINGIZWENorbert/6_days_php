@@ -43,7 +43,7 @@
            </select>
            <div class="flex justify-between my-2">
                <button class="bg-red-600 text-white px-[2rem] py-1 rounded-sm tetx-xl font-semibold">Cancel</button>
-               <input type="submit" value="Update" class="bg-green-600 text-white px-[2rem] py-1 rounded-sm tetx-xl font-semibold cursor-pointer">
+               <input type="submit" name="submit" value="Update" class="bg-green-600 text-white px-[2rem] py-1 rounded-sm tetx-xl font-semibold cursor-pointer">
           </div>
      </form>
      </div>

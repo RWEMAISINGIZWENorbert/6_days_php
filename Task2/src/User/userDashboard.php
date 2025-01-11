@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../output.css">
 </head>
 <body>
+    <!-- <?php
+     if(isset($_SESSION['user_email'])){  
+    ?> -->
     <div class="flex h-screen w-full bg-gray-300">
        <div class="h-full w-1/4 bg-amber-700">
           <h4 class="text-white font-semibold telg text-center mt-4 cursor-pointer">User dashboard</h4>
@@ -37,5 +40,8 @@
             ?>
        </div>
     </div>
+    <!-- <?php }else{
+        header("location: ../login.php?failed");
+    }?> -->
 </body>
 </html>

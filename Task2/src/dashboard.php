@@ -10,7 +10,7 @@
     <div class="h-screen w-full">
         <?php
           include "db_connect.php";
-          session_start();
+        //   session_start();
           $admin_email = $_SESSION['email'];
           $admin_sql = "SELECT * FROM admini WHERE email = '$admin_email'";
            $admin_result = $conn->query($admin_sql);

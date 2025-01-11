@@ -23,7 +23,7 @@ $hashedPassword = md5($password);
      $_SESSION['user_email'] = $email;
      header('location: ../User/userDashboard.php');
   }else{
-   header('location: ../login.php');
+   header('location: ../login.php?msg=Incorect User name or Password');
   }
  }
 

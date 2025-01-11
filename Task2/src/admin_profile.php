@@ -9,7 +9,7 @@
       <div class="w-full h-full">
         <?php
           include './db_connect.php';
-           session_start();
+        //    session_start();
            if($_SESSION['email']){
           $admin_email = $_SESSION['email'];
           $select = "SELECT * FROM admini WHERE email = '$admin_email'";

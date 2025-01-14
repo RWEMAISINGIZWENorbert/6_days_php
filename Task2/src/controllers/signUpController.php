@@ -6,6 +6,10 @@
  $password = $_POST['password'];
  $hashed_password = md5($password);
 
+ if(empty($name) || empty($email) || empty($password)){
+   header("location: ../index.php?msg= Please provide credentialas");
+ }
+
  $find = "SELECT * FROM admini WHERE email = '$email'";
  $findResult = mysqli_query($conn, $find);
 

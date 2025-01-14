@@ -19,6 +19,7 @@
              $admin_id= $admin_row['id'];
            }
         // DIsplay total users   
+        
           $sql = "SELECT id from users WHERE adminId = '$admin_id'";
           $result = $conn->query($sql);
           $totalLength = 0;
